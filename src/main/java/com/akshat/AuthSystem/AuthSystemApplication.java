@@ -1,5 +1,6 @@
 package com.akshat.AuthSystem;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,6 +8,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AuthSystemApplication {
 
 	public static void main(String[] args) {
+
+		Dotenv dotenv = Dotenv.load();
+
+		dotenv.entries().forEach(entry ->
+				System.setProperty(entry.getKey(), entry.getValue())
+		);
+
 		SpringApplication.run(AuthSystemApplication.class, args);
 	}
 

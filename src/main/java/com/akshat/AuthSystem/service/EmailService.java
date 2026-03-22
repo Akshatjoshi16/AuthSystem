@@ -20,7 +20,7 @@ public class EmailService {
         message.setFrom(fromEmail);
         message.setTo(toEmail);
         message.setSubject("Welcome to Our Platform");
-        message.setText("Hello "+name+",\n\nThanks for registering with us!\n\n Regards, \nAkshat Joshi");
+        message.setText("Hello "+name+",\n\nThanks for registering with us!\n\n Regards, \n Team Purohitam");
         mailSender.send(message);
     }
 }
