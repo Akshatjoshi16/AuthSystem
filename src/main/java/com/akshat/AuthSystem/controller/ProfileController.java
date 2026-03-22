@@ -2,6 +2,7 @@ package com.akshat.AuthSystem.controller;
 
 import com.akshat.AuthSystem.io.ProfileRequest;
 import com.akshat.AuthSystem.io.ProfileResponse;
+import com.akshat.AuthSystem.service.EmailService;
 import com.akshat.AuthSystem.service.ProfileService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +16,12 @@ public class ProfileController {
 
     private final ProfileService profileService;
 
+    private final EmailService emailService;
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public ProfileResponse register(@Valid @RequestBody ProfileRequest request){
         ProfileResponse response=profileService.createProfile(request);
+        emailService.sendWelcomeEmail(response.getEmail(), response.getName());
         return response;
     }
 
