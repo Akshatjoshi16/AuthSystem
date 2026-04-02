@@ -47,7 +47,7 @@ public class EmailService {
                         "We received a request to reset your Purohitam account password.\n\n" +
                         "Please use the One-Time Password (OTP) below to proceed:\n\n" +
                         "OTP: " + otp + "\n\n" +
-                        "This OTP is valid for a limited time. For your security, please do not share it with anyone.\n\n" +
+                        "This OTP is valid for 15 Minutes. For your security, please do not share it with anyone.\n\n" +
                         "If you did not request a password reset, please ignore this email or contact support immediately.\n\n" +
                         "Warm regards,\n" +
                         "Team Purohitam"
@@ -68,7 +68,7 @@ public class EmailService {
                         "Welcome to Purohitam!\n\n" +
                         "To complete your account verification, please use the One-Time Password (OTP) below:\n\n" +
                         "OTP: " + otp + "\n\n" +
-                        "This OTP is valid for a limited time. Please do not share it with anyone for security reasons.\n\n" +
+                        "This OTP is valid for 24 Hours. Please do not share it with anyone for security reasons.\n\n" +
                         "If you did not request this verification, please ignore this email.\n\n" +
                         "Warm regards,\n" +
                         "Team Purohitam"
