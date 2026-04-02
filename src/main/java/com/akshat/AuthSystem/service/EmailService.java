@@ -15,12 +15,22 @@ public class EmailService {
     @Value("${spring.mail.properties.mail.smtp.from}")
     private String fromEmail;
 
-    public void sendWelcomeEmail(String toEmail,String name){
-        SimpleMailMessage message=new SimpleMailMessage();
+    public void sendWelcomeEmail(String toEmail, String name){
+        SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(fromEmail);
         message.setTo(toEmail);
-        message.setSubject("Welcome to Our Platform");
-        message.setText("Hello "+name+",\n\nThanks for registering with us!\n\n Regards, \n Team Purohitam");
+        message.setSubject("Welcome to Purohitam – Your Spiritual Services Companion");
+
+        message.setText(
+                "Dear " + name + ",\n\n" +
+                        "Welcome to Purohitam!\n\n" +
+                        "We are delighted to have you join our platform. Purohitam helps you conveniently book poojas, consult experienced purohits, and access trusted spiritual services in one place.\n\n" +
+                        "Your account has been successfully created, and you can now explore our services.\n\n" +
+                        "If you need any assistance, our support team is always here to help.\n\n" +
+                        "Warm regards,\n" +
+                        "Team Purohitam"
+        );
+
         mailSender.send(message);
     }
 
