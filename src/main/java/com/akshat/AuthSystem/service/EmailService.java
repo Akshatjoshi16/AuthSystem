@@ -35,21 +35,46 @@ public class EmailService {
     }
 
     public void sendResetOtpEmail(String toEmail,String otp){
-        SimpleMailMessage message=new SimpleMailMessage();
+
+        SimpleMailMessage message = new SimpleMailMessage();
+
         message.setFrom(fromEmail);
         message.setTo(toEmail);
-        message.setSubject("Password Reset OTP");
-        message.setText("Your OTP for resetting your password is "+otp+" . Use this OTP to proceed with resetting.");
+        message.setSubject("Purohitam Password Reset Request – OTP Verification");
+
+        message.setText(
+                "Dear User,\n\n" +
+                        "We received a request to reset your Purohitam account password.\n\n" +
+                        "Please use the One-Time Password (OTP) below to proceed:\n\n" +
+                        "OTP: " + otp + "\n\n" +
+                        "This OTP is valid for a limited time. For your security, please do not share it with anyone.\n\n" +
+                        "If you did not request a password reset, please ignore this email or contact support immediately.\n\n" +
+                        "Warm regards,\n" +
+                        "Team Purohitam"
+        );
+
         mailSender.send(message);
     }
     public void sendOtpEmail(String toEmail,String otp){
-        SimpleMailMessage message=new SimpleMailMessage();
+
+        SimpleMailMessage message = new SimpleMailMessage();
+
         message.setFrom(fromEmail);
         message.setTo(toEmail);
-        message.setSubject("Account Verification OTP");
-        message.setText("Your OTP is "+otp+". Verify your account using this OTP.");
-        mailSender.send(message);
+        message.setSubject("Verify Your Purohitam Account – OTP Inside");
 
+        message.setText(
+                "Dear User,\n\n" +
+                        "Welcome to Purohitam!\n\n" +
+                        "To complete your account verification, please use the One-Time Password (OTP) below:\n\n" +
+                        "OTP: " + otp + "\n\n" +
+                        "This OTP is valid for a limited time. Please do not share it with anyone for security reasons.\n\n" +
+                        "If you did not request this verification, please ignore this email.\n\n" +
+                        "Warm regards,\n" +
+                        "Team Purohitam"
+        );
+
+        mailSender.send(message);
     }
 
 }
